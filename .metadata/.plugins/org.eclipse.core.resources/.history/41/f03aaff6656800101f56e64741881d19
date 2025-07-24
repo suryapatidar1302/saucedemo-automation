@@ -1,0 +1,9 @@
+import org.testng.annotations.Test;
+
+public class login extends base {
+    @Test
+    public void openSauceDemo() {
+        driver.get("https://www.saucedemo.com/");
+        System.out.println("Opened SauceDemo homepage!");
+    }
+}

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
+  <reporter-output>
+  </reporter-output>
+  <suite started-at="2025-07-24T13:43:14 IST" name="Default suite" finished-at="2025-07-24T13:43:17 IST" duration-ms="3428">
+    <groups>
+    </groups>
+    <test started-at="2025-07-24T13:43:14 IST" name="Default test" finished-at="2025-07-24T13:43:17 IST" duration-ms="3428">
+      <class name="saucedemo.practice.login">
+        <test-method is-config="true" signature="beforeMethod()[pri:0, instance:saucedemo.practice.login@738dc9b]" started-at="2025-07-24T13:43:14 IST" name="beforeMethod" finished-at="2025-07-24T13:43:15 IST" duration-ms="1704" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- beforeMethod -->
+        <test-method signature="openSauceDemo()[pri:0, instance:saucedemo.practice.login@738dc9b]" started-at="2025-07-24T13:43:15 IST" name="openSauceDemo" finished-at="2025-07-24T13:43:17 IST" duration-ms="1469" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- openSauceDemo -->
+        <test-method is-config="true" signature="afterMethod()[pri:0, instance:saucedemo.practice.login@738dc9b]" started-at="2025-07-24T13:43:17 IST" name="afterMethod" finished-at="2025-07-24T13:43:17 IST" duration-ms="216" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterMethod -->
+      </class> <!-- saucedemo.practice.login -->
+    </test> <!-- Default test -->
+  </suite> <!-- Default suite -->
+</testng-results>
