@@ -18,3 +18,10 @@
 
 ## 📌 Notes
 - More tests and features coming soon!
+## ✅ Test Cases
+- Login with valid credentials
+- Add item to cart
+- Logout and verify login page
+
+## 🏗 Framework
+- Uses Page Object Model (POM)
