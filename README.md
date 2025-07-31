@@ -41,6 +41,18 @@
 
 ## 📦 **Project Structure**
 
+# 📊 Day 4 – Added ExtentReports to SauceDemo automation framework
+
+## ✅ What was done:
+- Integrated **ExtentReports** for detailed HTML reports.
+- Created utility: `utils/ExtentManager.java` to manage report instance.
+- Updated `base.java` and `login.java` to create tests & log steps into the report.
+
+---
+
+## 📦 New file:
+
+
 
 ✅ Test Cases
 - Login with valid credentials
