@@ -18,7 +18,31 @@
 
 ## 📌 Notes
 - More tests and features coming soon!
-## ✅ Test Cases
+
+# SauceDemo Automation Framework
+
+🚀 Selenium automation framework for testing the [SauceDemo](https://www.saucedemo.com/) website, built using Java, TestNG, and Maven.
+
+---
+
+## 📌 **Current Status (Day 3):**
+✅ Configured project structure using Maven  
+✅ Implemented Page Object Model (POM) design  
+✅ Added automated test cases:
+- Valid login test using `@Parameters` (testng.xml)
+- Data-driven login test using `@DataProvider`
+- Add item to cart test
+- Logout test
+
+✅ Used TestNG annotations: `@BeforeMethod`, `@AfterMethod`  
+✅ Added waits inside page objects for better stability
+
+---
+
+## 📦 **Project Structure**
+
+
+✅ Test Cases
 - Login with valid credentials
 - Add item to cart
 - Logout and verify login page
