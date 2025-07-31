@@ -30,6 +30,7 @@ public class homePage {
 	}
 	
 	public void logout() {
+		
 		WebDriverWait wait1 = new WebDriverWait(driver, Duration.ofSeconds(5));
         wait1.until(ExpectedConditions.elementToBeClickable(menuButton));
 		

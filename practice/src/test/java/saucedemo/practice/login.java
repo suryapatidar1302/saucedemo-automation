@@ -6,6 +6,8 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
+import org.testng.annotations.DataProvider;
+import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
 
@@ -15,16 +17,18 @@ import pages.homePage;
 public class login extends base {
     @Test
     public void openSauceDemo() {
-        driver.get("https://www.saucedemo.com/");
+        //driver.get("https://www.saucedemo.com/");
         System.out.println("Opened SauceDemo homepage!");
     }
     
     @Test
-    public void testValidLogin()
+    @Parameters({"username","password"})
+    
+    public void testValidLogin(String username,String password)
     {
-    	driver.get("https://www.saucedemo.com/");
+    	//driver.get("https://www.saucedemo.com/");
     	LoginPage loginPage = new LoginPage(driver);
-    	loginPage.login("standard_user", "secret_sauce");
+    	loginPage.login(username,password);
     	
     	String expectedUrl = "https://www.saucedemo.com/inventory.html";
     	Assert.assertEquals(driver.getCurrentUrl(),expectedUrl);
@@ -32,10 +36,30 @@ public class login extends base {
 
      }
     
+    //testing with multiple users
+    @DataProvider(name="loginUsers")
+    public Object[][] loginUsers(){
+    	return new Object[][] {
+    		{"standard_user","secret_sauce"},
+    		{"problem_user", "secret_sauce"},
+            {"performance_glitch_user", "secret_sauce"}
+    	};
+    }
+    
+    @Test(dataProvider="loginUsers")
+    public void testMultipleData(String username,String password)
+    {
+    	LoginPage loginPage = new LoginPage(driver);
+    	loginPage.login(username, password);
+    	
+    	String expectedUrl = "https://www.saucedemo.com/inventory.html";
+    	Assert.assertEquals(driver.getCurrentUrl(),expectedUrl,"Login failed for user"+username);
+    }
+    
     @Test
     public void testItemAddCart()
     {
-    	driver.get("https://www.saucedemo.com/");
+    	//driver.get("https://www.saucedemo.com/");
     	LoginPage loginPage = new LoginPage(driver);
     	loginPage.login("standard_user","secret_sauce");
     	
@@ -49,7 +73,7 @@ public class login extends base {
     @Test
     public void testLogout()
     {
-    	driver.get("https://www.saucedemo.com/");
+    	//driver.get("https://www.saucedemo.com/");
     	LoginPage loginPage = new LoginPage(driver);
     	loginPage.login("standard_user","secret_sauce");
 
