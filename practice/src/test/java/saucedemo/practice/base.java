@@ -2,7 +2,11 @@ package saucedemo.practice;
 
 import org.testng.annotations.Test;
 
+import com.aventstack.extentreports.ExtentReports;
+import com.aventstack.extentreports.ExtentTest;
+
 import io.github.bonigarcia.wdm.WebDriverManager;
+import utils.ExtentManager;
 
 import org.testng.annotations.BeforeMethod;
 
@@ -20,16 +24,22 @@ import org.testng.annotations.BeforeClass;
 public class base {
   
 	protected WebDriver driver;
+	protected static ExtentReports extent;
+    protected static ExtentTest test;
+
 	
 	@BeforeClass
 	public void setup()
 	{
+		extent = ExtentManager.getInstance();
+        test = extent.createTest(this.getClass().getSimpleName());
 		System.out.println("Starting test class : "+this.getClass().getSimpleName());
 	}
 	
 	@AfterClass
 	public void tearDown()
 	{
+		extent.flush();
 		System.out.println("Finished test class : "+this.getClass().getSimpleName());
 	}
   

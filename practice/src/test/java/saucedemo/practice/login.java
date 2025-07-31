@@ -19,6 +19,7 @@ public class login extends base {
     public void openSauceDemo() {
         //driver.get("https://www.saucedemo.com/");
         System.out.println("Opened SauceDemo homepage!");
+        test.pass("URL verified homepage");
     }
     
     @Test
@@ -33,6 +34,7 @@ public class login extends base {
     	String expectedUrl = "https://www.saucedemo.com/inventory.html";
     	Assert.assertEquals(driver.getCurrentUrl(),expectedUrl);
     	System.out.println("Opened after login!");
+    	test.pass("URL verified after login");
 
      }
     
@@ -54,6 +56,7 @@ public class login extends base {
     	
     	String expectedUrl = "https://www.saucedemo.com/inventory.html";
     	Assert.assertEquals(driver.getCurrentUrl(),expectedUrl,"Login failed for user"+username);
+    	test.pass("URL verified after multiple login");
     }
     
     @Test
@@ -68,6 +71,7 @@ public class login extends base {
     	
     	Assert.assertTrue(homepage.cartBadge(),"Item not added to cart");
     	System.out.println("Adding Cart method run");
+    	test.pass("Items added successfully");
     }
     
     @Test
@@ -84,6 +88,8 @@ public class login extends base {
     	String expectedUrl = "https://www.saucedemo.com/";
     	Assert.assertEquals(driver.getCurrentUrl(),expectedUrl);
     	System.out.println("On home page again");
+    	test.pass("Logout done");
+    	test.fail("logout failed");
     }
     
 }
