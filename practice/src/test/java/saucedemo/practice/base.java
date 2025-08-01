@@ -4,12 +4,15 @@ import org.testng.annotations.Test;
 
 import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
+import com.aventstack.extentreports.Status;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 import utils.ExtentManager;
+import utils.ScreenshotUtils;
 
 import org.testng.annotations.BeforeMethod;
 
+import java.io.IOException;
 import java.time.Duration;
 
 import org.openqa.selenium.By;
@@ -17,6 +20,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.ITestResult;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeClass;
@@ -54,7 +58,14 @@ public class base {
   }
 
   @AfterMethod
-  public void afterMethod() {
+  public void afterMethod(ITestResult result) throws Exception {
+	  if (result.getStatus() == ITestResult.FAILURE) {
+	        // Take screenshot
+	        String screenshotPath = ScreenshotUtils.takeScreenshot(driver, result.getName());
+	        // Log in ExtentReport
+	        test.log(Status.FAIL, "Test failed: " + result.getThrowable());
+	        test.addScreenCaptureFromPath(screenshotPath);
+	    }
 	  if(driver!=null)
 	  {
 		  driver.quit();

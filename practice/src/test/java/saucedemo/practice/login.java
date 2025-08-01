@@ -89,7 +89,6 @@ public class login extends base {
     	Assert.assertEquals(driver.getCurrentUrl(),expectedUrl);
     	System.out.println("On home page again");
     	test.pass("Logout done");
-    	test.fail("logout failed");
     }
     
 }
