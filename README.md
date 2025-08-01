@@ -61,3 +61,44 @@
 
 ## 🏗 Framework
 - Uses Page Object Model (POM)
+
+# Day 5: Automated Testing Enhancements – Screenshot on Failure
+
+## ✅ What was done
+- Added `ScreenshotUtils` utility:
+  - Captures screenshot on test failure
+  - Names screenshots with test name & timestamp
+  - Saves to `screenshots/` folder
+- Updated `@AfterMethod` in base/test class:
+  - Detects test result status (`ITestResult`)
+  - If failed: takes screenshot and attaches to ExtentReport
+  - Logs pass, fail, or skip automatically
+- Committed & pushed changes to GitHub after resolving merge with `git pull`
+
+---
+
+## 📦 **Key classes & methods**
+- `utils/ScreenshotUtils.java`  
+  → static method `takeScreenshot(WebDriver, testName)`
+- `@AfterMethod` in base/test class  
+  → automatically logs actual test result (no manual test.pass/fail needed)
+
+---
+
+## 🧠 **Why this matters**
+- Automatic screenshots help debugging failures
+- Makes ExtentReports professional & clear
+- Keeps console, reports & screenshots always in sync
+
+---
+
+## 🛠 **Tools & Libraries**
+- Selenium Java
+- TestNG
+- ExtentReports
+- Apache Commons IO (`FileUtils`)
+
+---
+
+  
+
