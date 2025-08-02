@@ -99,6 +99,41 @@
 - Apache Commons IO (`FileUtils`)
 
 ---
+Day 6 (Jenkins Setup): CI for SauceDemo Automation
+🛠 Project:
+SauceDemo automation framework using:
 
+Java + Selenium + TestNG
+
+Maven
+
+ExtentReports
+
+Jenkins for CI
+
+✅ What was done on Day 6 (Jenkins)
+We set up Jenkins to run our test automation automatically every day and show reports.
+
+Steps done:
+
+1️⃣ Installed Jenkins (locally):
+
+Downloaded from jenkins.io
+
+Started Jenkins locally
+
+Installed suggested plugins on first setup
+
+2️⃣ Created a Freestyle Job in Jenkins:
+
+Job name: SauceDemo-Automation
+
+Configured:
+
+Build trigger: set to build daily (e.g., using cron H 9 * * * → every day at 9 AM)
+
+Clicking the link opens the ExtentReport in browser:
+
+Shows passed / failed tests, duration, details, exceptions.
   
 
