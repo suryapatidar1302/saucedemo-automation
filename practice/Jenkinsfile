@@ -1,0 +1,50 @@
+pipeline {
+    agent any
+
+    tools {
+        maven 'Maven 3.9.11'   // Name should match Jenkins -> Global Tool Configuration
+        jdk 'jdk16'            // Or 'java16' if you want to switch to Java 16.0.2
+    }
+
+    environment {
+        REPORT_DIR = 'practice/test-output/ExtentReport'  // updated folder structure
+    }
+
+    stages {
+        stage('Checkout Code') {
+            steps {
+                echo '📥 Cloning repository...'
+                git 'https://github.com/suryapatidar1302/saucedemo-automation.git'
+            }
+        }
+
+        stage('Build & Test') {
+            steps {
+                echo '🔧 Running Maven tests inside /practice...'
+                dir('practice') {
+                    sh 'mvn clean test'
+                }
+            }
+        }
+
+        stage('Publish Extent Report') {
+            steps {
+                echo '📊 Publishing Extent Report from /practice/test-output...'
+                publishHTML([
+                    allowMissing: false,
+                    alwaysLinkToLastBuild: true,
+                    keepAll: true,
+                    reportDir: "${REPORT_DIR}",
+                    reportFiles: 'index.html',
+                    reportName: 'Extent Report'
+                ])
+            }
+        }
+    }
+
+    post {
+        always {
+            echo '✅ Pipeline execution completed.'
+        }
+    }
+}
