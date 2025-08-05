@@ -2,19 +2,19 @@ pipeline {
     agent any
 
     tools {
-        maven 'Maven 3.9.11'   // Name should match Jenkins -> Global Tool Configuration
-        jdk 'jdk16'            // Or 'java16' if you want to switch to Java 16.0.2
+        maven 'Maven 3.9.11'   // Must match Jenkins -> Global Tool Configuration
+        jdk 'jdk16'            // Must match Jenkins -> Global Tool Configuration
     }
 
     environment {
-        REPORT_DIR = 'practice/test-output/ExtentReport'  // updated folder structure
+        REPORT_DIR = 'practice/test-output/ExtentReport'
     }
 
     stages {
         stage('Checkout Code') {
             steps {
                 echo '📥 Cloning repository...'
-                git 'https://github.com/suryapatidar1302/saucedemo-automation.git'
+                git branch: 'main', url: 'https://github.com/suryapatidar1302/saucedemo-automation.git'
             }
         }
 
